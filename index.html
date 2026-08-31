@@ -23,6 +23,7 @@
     <div id="used" class="gone">
       <h1>Já foi baixado</h1>
       <p>Este navegador já usou o download.</p>
+      <p><a href="./?reset=1" style="color:#fff">Resetar teste</a></p>
     </div>
   </main>
   <script>
@@ -33,9 +34,16 @@
     function burn() {
       document.cookie = KEY + '=1; Max-Age=31536000; Path=/; SameSite=Lax';
     }
+    function clear() {
+      document.cookie = KEY + '=; Max-Age=0; Path=/; SameSite=Lax';
+    }
     function showUsed() {
       document.getElementById('ok').classList.add('gone');
       document.getElementById('used').classList.remove('gone');
+    }
+    if (location.search.indexOf('reset=1') !== -1) {
+      clear();
+      history.replaceState(null, '', './');
     }
     if (burned()) showUsed();
     document.getElementById('btn').addEventListener('click', function () {
