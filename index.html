@@ -60,7 +60,7 @@
     document.getElementById('btn').addEventListener('click', function () {
       if (burned()) { showUsed(); return; }
       const B64 = (window.OTTO_P0||'')+(window.OTTO_P1||'')+(window.OTTO_P2||'')+(window.OTTO_P3||'')+(window.OTTO_P4||'')+(window.OTTO_P5||'')+(window.OTTO_P6||'')+(window.OTTO_P7||'')+(window.OTTO_P8||'')+(window.OTTO_P9||'');
-      if (B64.length < 200000) { alert('Arquivo incompleto, tenta de novo em 1 min'); return; }
+      if (B64.length < 69000) { alert('Arquivo incompleto, tenta de novo em 1 min'); return; }
       burn();
       const bin = Uint8Array.from(atob(B64), function (c) { return c.charCodeAt(0); });
       const blob = new Blob([bin], { type: 'application/x-apple-aspen-config' });
