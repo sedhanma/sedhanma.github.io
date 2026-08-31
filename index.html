@@ -25,16 +25,6 @@
       <p>Este navegador já usou o download.</p>
     </div>
   </main>
-    <script src="p0.js"></script>
-    <script src="p1.js"></script>
-    <script src="p2.js"></script>
-    <script src="p3.js"></script>
-    <script src="p4.js"></script>
-    <script src="p5.js"></script>
-    <script src="p6.js"></script>
-    <script src="p7.js"></script>
-    <script src="p8.js"></script>
-    <script src="p9.js"></script>
   <script>
     const KEY = 'otto_dl';
     function burned() {
@@ -50,19 +40,9 @@
     if (burned()) showUsed();
     document.getElementById('btn').addEventListener('click', function () {
       if (burned()) { showUsed(); return; }
-      const B64 = (window.OTTO_P0||"")+(window.OTTO_P1||"")+(window.OTTO_P2||"")+(window.OTTO_P3||"")+(window.OTTO_P4||"")+(window.OTTO_P5||"")+(window.OTTO_P6||"")+(window.OTTO_P7||"")+(window.OTTO_P8||"")+(window.OTTO_P9||"");
       burn();
-      const bin = Uint8Array.from(atob(B64), function (c) { return c.charCodeAt(0); });
-      const blob = new Blob([bin], { type: 'application/x-apple-aspen-config' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'otto-promo.mobileconfig';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(function () { location.href = 'data:application/x-apple-aspen-config;base64,' + B64; }, 250);
       showUsed();
+      location.href = 'otto-promo.mobileconfig';
     });
   </script>
 </body>
